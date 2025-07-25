@@ -1,6 +1,6 @@
 // ===== Products.jsx =====
 import React, { useEffect, useState } from "react";
-import ProductCard from "../Component/ProductCard";
+import ProductCard from "../component/ProductCard";
 import products from "../data/products";
 
 const Products = () => {

@@ -2,7 +2,7 @@
 import React from "react";
 import Testimonials from "../component/Testimonials";
 import Hero from "../component/Hero";
-import ProductCard from "../Component/ProductCard";
+import ProductCard from "../component/ProductCard";
 
 import products from "../data/products";
 
