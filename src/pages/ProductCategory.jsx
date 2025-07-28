@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import products from "../data/products";
-import ProductCard from "../component/ProductCard";
+import products from "../Data/products";
+import ProductCard from "../components/ProductCard";
 
 const ProductCategory = () => {
   const { category } = useParams();
@@ -11,11 +11,12 @@ const ProductCategory = () => {
   );
 
   return (
-    <section className="py-12 px-4 sm:px-16  min-h-screen">
-      <h2 className="lg:text-3xl text-2xl font-bold text-center text-[#b84d1c] mb-8 capitalize">
+    <section className="py-12 px-4 lg:px-20  min-h-screen lg:mt-24 mt-10">
+      {/* <h2 className="lg:text-3xl text-2xl font-bold text-center text-[#b84d1c] mb-8 capitalize"> */}
+         <h2 className="lg:text-3xl text-2xl font-bold text-center py-2 text-white bg-gradient-to-l from-[#2e2b06]  to-[#ffcc70] mb-8 capitalize">
         {category} Products
       </h2>
-      <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-8xl mx-auto">
         {filteredProducts.length ? (
           filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />

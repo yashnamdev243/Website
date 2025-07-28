@@ -1,348 +1,296 @@
-// // src/pages/About.jsx
-// import React from 'react';
-
-// const About = () => {
-//   return (
-//     <section className="py-12 px-4 sm:px-16 bg-white">
-//       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-//         {/* Image Section */}
-//         <div>
-//           <img
-//             src="/assets/about-shivling.jpg"
-//             alt="Namdev Narmadeshwar Shivling Arts"
-//             className="rounded-lg shadow-md object-cover w-full max-h-[500px]"
-//           />
-//         </div>
-
-//         {/* Text Content */}
-//         <div>
-//           <h2 className="text-4xl font-bold text-[#b84d1c] mb-4">About Us</h2>
-//           <p className="text-gray-700 mb-4 leading-relaxed">
-//             At <strong>Namdev Narmadeshwar Shivling Arts</strong>, we are dedicated to preserving the sacred
-//             heritage of Indian spirituality by crafting authentic <strong>Narmadeshwar Shivlings</strong> and
-//             other divine art pieces.
-//           </p>
-//           <p className="text-gray-700 mb-4 leading-relaxed">
-//             Founded with devotion and precision, our workshop has grown into a trusted name for devotees across India. Each Shivling is
-//             sourced and shaped with respect, faith, and traditional values—designed to bring peace and divinity to your home or temple.
-//           </p>
-//           <p className="text-gray-700 leading-relaxed">
-//             With over <strong>5+ years of experience</strong> and <strong>50+ successful spiritual treks & tours</strong>,
-//             our aim is to blend sacred art with soulful living.
-//           </p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default About;
-
-
-// src/pages/About.jsx
-// import React, { useEffect } from "react";
-// import { motion } from "framer-motion";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
-
-// const About = () => {
-//   useEffect(() => {
-//     AOS.init({ once: true, duration: 1000 });
-//     window.scrollTo(0, 0);
-//   }, []);
-
-//   return (
-//     <section className="py-12 px-4 sm:px-16 bg-gradient-to-b from-[#fefaf7] to-white text-gray-800">
-//       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-//         {/* Image Section */}
-//         <motion.div
-//           initial={{ opacity: 0, x: -50 }}
-//           whileInView={{ opacity: 1, x: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <img
-//             src="/assets/about-shivling.jpg"
-//             alt="Namdev Narmadeshwar Shivling Arts"
-//             className="rounded-2xl shadow-xl object-cover w-full max-h-[500px]"
-//           />
-//         </motion.div>
-
-//         {/* Text Section */}
-//         <div data-aos="fade-left">
-//           <h2 className="text-4xl font-bold text-[#b84d1c] mb-4">About Us</h2>
-//           <p className="text-lg leading-relaxed mb-4">
-//             <strong>Namdev Narmadeshwar Shivling Arts</strong> is devoted to preserving Indian spiritual
-//             heritage by handcrafting authentic <strong>Narmadeshwar Shivlings</strong> and sacred art pieces
-//             with love, tradition, and devotion.
-//           </p>
-//           <p className="text-lg leading-relaxed mb-4">
-//             With <strong>5+ years of dedication</strong> and <strong>50+ successful spiritual yatras</strong>,
-//             we blend ancient wisdom with modern craftsmanship to deliver purity and divinity in every product.
-//           </p>
-//           <p className="text-lg leading-relaxed">
-//             Our mission is to guide souls toward inner peace through sacred art, and to be your spiritual
-//             partner on the path of devotion.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Highlights */}
-//       <div className="mt-16 grid md:grid-cols-3 gap-6" data-aos="fade-up">
-//         {[
-//           {
-//             title: "Authentic Craftsmanship",
-//             desc: "Every Shivling is shaped with spiritual care and tradition.",
-//             icon: "🛕",
-//           },
-//           {
-//             title: "Spiritual Tours",
-//             desc: "We’ve led 50+ treks to divine locations including Kailash, Kedarnath & more.",
-//             icon: "🧘‍♂️",
-//           },
-//           {
-//             title: "Devotee Trust",
-//             desc: "Trusted by thousands of devotees across India for purity and quality.",
-//             icon: "🙏",
-//           },
-//         ].map((item, idx) => (
-//           <motion.div
-//             key={idx}
-//             whileHover={{ scale: 1.05 }}
-//             className="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-xl transition-all"
-//           >
-//             <div className="text-4xl mb-3">{item.icon}</div>
-//             <h3 className="text-xl font-semibold text-[#b84d1c] mb-2">{item.title}</h3>
-//             <p className="text-gray-600">{item.desc}</p>
-//           </motion.div>
-//         ))}
-//       </div>
-
-//       {/* Timeline / Vertical Values */}
-//       <div className="mt-20 max-w-4xl mx-auto" data-aos="fade-up">
-//         <h3 className="text-2xl font-bold text-[#b84d1c] text-center mb-8">Our Core Values</h3>
-//         <ul className="relative border-l-4 border-[#b84d1c] pl-6 space-y-6">
-//           {[
-//             {
-//               title: "Devotion",
-//               desc: "We infuse every piece with spiritual energy and reverence.",
-//             },
-//             {
-//               title: "Purity",
-//               desc: "Using natural, sacred stones from the holy Narmada River.",
-//             },
-//             {
-//               title: "Tradition",
-//               desc: "Rooted in age-old Indian artisan methods and Vedic beliefs.",
-//             },
-//           ].map((item, idx) => (
-//             <li key={idx} className="relative">
-//               <span className="absolute w-4 h-4 bg-[#b84d1c] rounded-full -left-2 top-1.5"></span>
-//               <h4 className="text-lg font-semibold text-[#b84d1c]">{item.title}</h4>
-//               <p className="text-gray-700">{item.desc}</p>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default About;
-
-// src/pages/About.jsx
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  FaMountain,
+  FaRoute,
+  FaCampground,
+  FaGlobe,
+  FaPlaceOfWorship,
+  FaHiking,
+  FaMapMarkedAlt,
+  FaShieldAlt,
+  FaHotel,
+  FaPrayingHands,
+} from "react-icons/fa";
+import { GiTempleGate } from "react-icons/gi";
 
 const About = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-    window.scrollTo(0, 0); // Scroll to top on load
-  }, []);
-const awards = [
-  {
-    title: "Best Spiritual Artisanship Award",
-    year: "2023",
-    icon: "/assets/awards/award1.png",
-  },
-  {
-    title: "Certified Narmadeshwar Shivling Supplier",
-    year: "2022",
-    icon: "/assets/awards/award2.png",
-  },
-  {
-    title: "Excellence in Pilgrimage Services",
-    year: "2021",
-    icon: "/assets/awards/award3.png",
-  },
+  const features = [
+    {
+      title: "Expert Guides",
+      desc: "Trained professionals with deep knowledge of Himalayan terrain.",
+      icon: <FaHiking />,
+    },
+    {
+      title: "Personalized Experience",
+      desc: "Customized tours to meet your needs and preferences.",
+      icon: <FaMapMarkedAlt />,
+    },
+    {
+      title: "Safety First",
+      desc: "Planned itineraries, acclimatization, and emergency support.",
+      icon: <FaShieldAlt />,
+    },
+  ];
+  const destinations = [
+    { name: "Char Dham Yatra", icon: <FaPlaceOfWorship />, id: 7 },
+    { name: "Manimahesh Kailash Yatra", icon: <FaMountain />,id: 1 },
+    { name: "Shrikhand Mahadev Trek", icon: <FaHiking />,id: 2 },
+    { name: "Kinnaur Kailash Trek", icon: <FaMapMarkedAlt />,id: 3 },
+    { name: "Adi Kailash Trek ", icon: <FaGlobe />,id: 4 },
+    { name: "Mansarovar Kailash Yatra", icon: <FaCampground />,id: 5 },
+    { name: "Kedarnath Dham", icon: <GiTempleGate />,id: 6 },
+    // { name: "Ujjain Mahakaleshwar", icon: <FaPlaceOfWorship />, },
+  ];
+  const navigate = useNavigate();
+
+  const [text, setText] = useState("");
+
+const words = [
+  "Buy Narmadeshwar Shivlings!",
+  "Handcrafted Shivlings for Your Temple!",
+  "Authentic Narmada Shivling Online!",
+  "Bring Divine Energy Home!",
+  "Shop Spiritual Shivling Collections!",
 ];
 
+  let index = 0;
+
+  // Typing Effect for Headline
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setText(words[index]);
+      index = (index + 1) % words.length;
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
+
+  const handleNavigate = (id) => {
+    navigate(`/tour/${id}`);
+  };
   return (
-    <section className="py-12 px-4 sm:px-16 bg-gradient-to-br from-[#fff8f3] to-[#fff]">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-        {/* Image Section */}
-        <div data-aos="fade-right">
-          <img
-            src="/assets/about-shivling.jpg"
-            alt="Namdev Narmadeshwar Shivling Arts"
-            className="rounded-2xl shadow-xl object-cover w-full max-h-[500px]"
-          />
-        </div>
+    <div className="bg-gray-100 text-gray-900">
+      {/* Hero Section */}
+      <div
+        className="relative lg:h-[70vh] h-55 flex items-center justify-center bg-cover bg-center bg-no-repeat text-white text-center"
+        style={{ backgroundImage: "url('/about1.png')" }} // Ensure the image is moved here
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-gray-900/30 "></div>
 
-        {/* Text Content */}
-        <div data-aos="fade-left">
-          <h2 className="text-4xl font-bold text-[#b84d1c] mb-4">About Us</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            <strong>Namdev Narmadeshwar Shivling Arts</strong> is devoted to
-            preserving India's sacred traditions by crafting authentic{" "}
-            <strong>Narmadeshwar Shivlings</strong> and spiritual artworks that
-            enrich lives and homes with divinity.
+        <div className="relative pb-6 z-10 animate-fadeIn">
+          <h1 className="text-2xl lg:mt-10 mt-20 pb-2 font-bold md:text-5xl text-[#ffcc70] drop-shadow-lg animate-glow">
+      Namdev Narmadeshwar Shivling Arts
+          </h1>
+
+          <p className="lg:mt-2 text-xs lg:text-lg max-w-2xl pb-2 mx-auto text-gray-200 animate-flicker">
+    Discover the Power of Narmadeshwar Shivlings <br /> – Handcrafted for Your Spiritual Journey.
           </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            With over <strong>5+ years of expertise</strong> and{" "}
-            <strong>50+ successful spiritual yatras</strong>, we merge divine
-            craftsmanship with soulful living. Every piece is curated with
-            reverence and faith.
+
+          <p className="lg:text-lg text-xs text-gray-300 text-center max-w-lg mx-auto italic animate-slideUp transition-all duration-500">
+            {text}
           </p>
-          <p className="text-gray-700 leading-relaxed">
-            From temples to personal shrines, our creations are trusted by
-            thousands across India.
-          </p>
+
         </div>
       </div>
 
-      {/* Mission / Vision Cards */}
-      <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
-        {[
-          {
-            title: "Our Mission",
-            desc: "To spread spiritual awareness by offering handmade divine artifacts that reflect ancient Hindu culture.",
-            icon: "🕉️",
-          },
-          {
-            title: "Spiritual Treks",
-            desc: "We organize soulful treks like Char Dham, Manimahesh Kailash, and Shrikhand Mahadev Yatras.",
-            icon: "🗻",
-          },
-          {
-            title: "Authenticity",
-            desc: "Every Shivling is sourced directly from the sacred Narmada River, ensuring authenticity and power.",
-            icon: "🔱",
-          },
-        ].map((card, index) => (
-          <div
-            key={index}
-            className="p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-all"
-            data-aos="zoom-in"
-          >
-            <div className="text-4xl mb-4">{card.icon}</div>
-            <h3 className="text-xl font-semibold text-[#c54d1e] mb-2">
-              {card.title}
-            </h3>
-            <p className="text-gray-600">{card.desc}</p>
+      {/* Who We Are */}
+
+      <section className="relative pt-14 md:pb-6 px-6 md:px-20 bg-gradient-to-b from-blue-100 to-gray-100">
+        {/* Section Heading */}
+        {/* <h2 className="lg:text-4xl text-2xl font-bold text-center text-[#06242e]  animate-fadeIn">
+          Who <span className="text-[#2592b7]">We Are</span>
+        </h2>
+        <p className="mt-4 md:my-10 lg:text-lg text-sm text-gray-700 text-center max-w-3xl mx-auto fira-sans">
+          Welcome to{" "}
+          <span className="font-semibold text-[#0c95c3]">Namdev Narmadeshwar Shivling Arts</span>,
+          your trusted companion for divine journeys and high-altitude
+          adventures. With over{" "}
+          <span className="font-bold text-[#0c95c3]">50+ successful treks</span>
+          , we specialize in guiding spiritual seekers and thrill lovers through
+          the Himalayas.
+        </p> */}
+
+<h2 className="lg:text-4xl text-2xl font-bold text-center text-[#06242e] animate-fadeIn">
+  Who <span className="text-[#ffcc70]">We Are</span>
+</h2>
+<p className="mt-4 md:my-10 lg:text-lg text-sm text-gray-700 text-center max-w-3xl mx-auto fira-sans">
+  Welcome to{" "}
+  <span className="font-semibold text-[#ffcc70]">Namdev Narmadeshwar Shivling Arts</span>,
+  proudly serving the spiritual community since{" "}
+  <span className="font-bold text-[#ffcc70]">1945</span>. With over{" "}
+  <span className="font-bold text-[#ffcc70]">80 years</span> of legacy, we craft and supply
+  authentic and handcrafted religious items such as{" "}
+  <span className="font-semibold">Narmadeshwar Shivling, Jaldhara, Nandi Ji, Tortoise, Lord Ganesha, Parvati Ji, Kartik Ji, Lord Shiva, Lord Dattatreya</span>,
+  and sacred symbols including{" "}
+  <span className="font-semibold">Brass & Copper Snakes, Trishul, Jalpatra, and Shiv Parivar sets</span>.
+  Rooted in devotion, we are committed to delivering purity, tradition, and spiritual authenticity to homes and temples across India.
+</p>
+
+        {/* Content Grid */}
+        <div className="grid md:grid-cols-2 gap-10 mt-12 items-center">
+          {/* Image Section */}
+          <div className="relative group">
+            <img
+              src="/Mission&Vision.png"
+              alt="Trekking Spiritual Hikes"
+              className="rounded-lg shadow-lg transform group-hover:scale-105 transition duration-500 ease-in-out   lg:w-[600px] lg:h-[400px] object-cover
+"
+            />
+
+            <div className="absolute inset-0  bg-opacity-30 rounded-lg group-hover:bg-opacity-10 transition duration-500"></div>
           </div>
-        ))}
-      </div>
 
-      {/* Timeline Section */}
-      <div className="mt-20">
-        <h2
-          className="text-3xl font-bold text-center text-[#b84d1c] mb-10"
-          data-aos="fade-up"
-        >
-          Our Journey
-        </h2>
-        <div className="relative border-l-4 border-[#c54d1e] pl-6 space-y-8">
-          {[
-            {
-              year: "2018",
-              event: "Company founded with devotion and a vision to spread spiritual positivity.",
-            },
-            {
-              year: "2020",
-              event: "Launched spiritual trek services to Char Dham and Kinnaur Kailash.",
-            },
-            {
-              year: "2024",
-              event: "Expanded reach across India with over 1000+ happy customers.",
-            },
-          ].map((item, idx) => (
-            <div key={idx} className="relative" data-aos="fade-right">
-              <div className="absolute -left-3 w-6 h-6 bg-[#c54d1e] rounded-full border-4 border-white"></div>
-              <h4 className="text-lg font-bold text-[#c54d1e]">{item.year}</h4>
-              <p className="text-gray-700">{item.event}</p>
-            </div>
-          ))}
+          {/* Text Content */}
+          <div className="animate-fadeIn">
+            <h3 className="lg:text-3xl text-xl text-center md:text-left font-semibold text-[#06242e] ">
+              Our Mission <span className="text-[#0c95c3]"> &</span> Vision
+            </h3>
+            <p className="mt-6 text-gray-600 lg:text-lg text-center md:text-left text-sm leading-relaxed fira-sans">
+              We believe that every journey to the Himalayas is more than just a
+              trek—it is a
+              <span className="font-bold text-[#0c95c3]">
+                {" "}
+                spiritual transformation.
+              </span>
+              Our mission is to provide well-organized, safe, and fulfilling
+              experiences for travelers seeking divine blessings and adventure.
+            </p>
+
+            {/* Bullet Points with Icons */}
+            <ul className="py-8 space-y-3 lg:text-lg text-sm">
+              <li className="flex items-center gap-3 fira-bold">
+                <FaHiking className="text-[#0c95c3] lg:text-xl text-lg" />{" "}
+                Expert guidance from trained professionals
+              </li>
+              <li className="flex items-center gap-3 fira-bold">
+                <FaHotel className="text-[#0c95c3] lg:text-xl text-lg" />{" "}
+                Hassle-free accommodations and travel arrangements
+              </li>
+              <li className="flex items-center gap-3 fira-bold">
+                <FaShieldAlt className="text-[#0c95c3] lg:text-xl text-lg" />{" "}
+                Focus on safety with well-planned trekking schedules
+              </li>
+              <li className="flex items-center gap-3 fira-bold">
+                <FaPrayingHands className="text-[#0c95c3]  lg:text-xl text-lg" />{" "}
+                Authentic spiritual and cultural experience
+              </li>
+            </ul>
+
+            {/* Call-to-Action Button */}
+            {/* <div className="mt-6">
+              <button className="bg-blue-600 text-white px-5 text-xs md:text-lg py-3 rounded-full font-semibold shadow-lg hover:bg-blue-800 hover:shadow-xl transition duration-300">
+                Join Our Journey
+              </button>
+            </div> */}
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Testimonials */}
-      <div className="mt-20">
-        <h2
-          className="text-3xl font-bold text-center text-[#b84d1c] mb-10"
-          data-aos="fade-up"
-        >
-          What Our Devotees Say
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="zoom-in-up">
-          {[
-            {
-              name: "Ravi Sharma",
-              feedback:
-                "The Shivling I received radiates divine energy. Truly authentic craftsmanship!",
-              location: "Haridwar",
-            },
-            {
-              name: "Sunita Verma",
-              feedback:
-                "Their service is spiritual in every sense. Felt peace after our Kedarnath tour.",
-              location: "Jaipur",
-            },
-            {
-              name: "Amit Joshi",
-              feedback:
-                "Every piece is handmade with faith. Grateful for this divine experience.",
-              location: "Pune",
-            },
-          ].map((t, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-all"
-            >
-              <p className="text-gray-600 italic">"{t.feedback}"</p>
-              <div className="mt-4 font-semibold text-[#b84d1c]">
-                - {t.name}, <span className="text-gray-500">{t.location}</span>
+      {/* Destinations We Cover */}
+
+      <section
+        className="relative py-12 bg-cover bg-center bg-gradient-to-r from-[#0cb4c3] to-[#06242e]  text-white"
+        // style={{ backgroundImage: "url('\VisionsofGrandeur.jpg')" }}
+      >
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0  bg-opacity-50"></div>
+
+        <div className="relative z-10 text-center text-white">
+          <h2 className="lg:text-4xl text-2xl font-bold text-center animate-fadeIn">
+            Our Destinations
+          </h2>
+          <p className="mt-4 lg:text-lg text-sm mx-6 max-w-2xl fira-sans md:mx-auto">
+            Discover sacred and breathtaking locations with our expert-led
+            expeditions.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-y-6 md:gap-y-10 gap-x-6 mt-10 px-10">
+            {destinations.map((destination, index) => (
+              <div
+                key={index}
+                className="bg-white text-gray-800 justify-items-center rounded-lg shadow-lg lg:p-6 py-4 text-center hover:shadow-2xl transform hover:scale-105 active:scale-105 transition duration-300 border-b-4 border-[#3992af] cursor-pointer"
+              >
+                <div
+                  className="flex items-center gap-2"
+                  onClick={()=>handleNavigate(destination.id)}
+                >
+                  <div className="text-[#0c95c3] lg:text-2xl text-xl">
+                    {destination.icon}
+                  </div>
+                  <h3 className="lg:text-xl text-sm font-semibold">
+                    {destination.name}
+                  </h3>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* <div className="mt-10">
+            <button className="bg-blue-600 text-white px-5  text-xs md:text-lg py-3 rounded-full font-semibold shadow-lg hover:bg-blue-800 hover:shadow-xl transition duration-300">
+              Explore More
+            </button>
+          </div> */}
         </div>
-      </div>
-       <div className="mt-20" data-aos="fade-up">
-        <h3 className="text-2xl font-semibold text-[#794229] text-center mb-6">
-          Certifications & Awards
-        </h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {awards.map((award, index) => (
+      </section>
+
+      <section className="py-16 px-6 md:px-20 bg-gradient-to-b from-blue-50 to-white">
+        <h2 className="lg:text-4xl text-2xl font-bold text-center text-[#06242e] mb-4 animate-fadeIn">
+          Why Choose <span className="text-[#0c95c3]">Spiritual Hikes?</span>
+        </h2>
+        <p className="text-center lg:text-lg text-sm text-gray-700 py-4 max-w-3xl mx-auto fira-sans">
+          Our commitment to safety, spiritual enrichment, and adventure makes us
+          the ideal choice for your Himalayan journey.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
+          {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-gradient-to-tr from-[#f3f3f3] to-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all"
+              className="bg-white rounded-lg p-6 shadow-md hover:shadow-2xl transform hover:-translate-y-2 active:-translate-y-2 transition duration-300 border-l-4 border-[#3992af]  hover:blue-indigo-700"
             >
-              <img
-                src={award.icon}
-                alt={award.title}
-                className="w-16 h-16 mb-4 mx-auto"
-              />
-              <h4 className="text-lg font-semibold text-center">
-                {award.title}
-              </h4>
-              <p className="text-sm text-center text-gray-600">{award.year}</p>
+              <div className="text-[#0c95c3] lg:text-4xl text-2xl mb-3">
+                {feature.icon}
+              </div>
+              <h3 className="lg:text-lg text-sm font-semibold text-[#0c95c3]">
+                {feature.title}
+              </h3>
+              <p className="mt-2 lg:text-[16px] text-xs text-gray-700">
+                {feature.desc}
+              </p>
             </div>
           ))}
         </div>
-      </div>
 
-    </section>
+        {/* <div className="text-center mt-10">
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-blue-800 hover:shadow-xl transition duration-300">
+          Join Us Today
+        </button>
+      </div> */}
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-10 md:py-18  bg-gradient-to-l from-[#2e2b06]  to-[#ffcc70]   text-white text-center">
+        <h2 className="lg:text-4xl text-xl font-bold text-center mx-3">
+          Start Your Spiritual Journey with Namdev Narmadeshwar Shivling Arts
+
+
+        </h2>
+        <p className="py-6 lg:text-lg text-sm max-w-3xl md:mx-auto mx-5 fira-sans">
+Bring divine energy into your life with our handcrafted Narmadeshwar Shivlings and sacred stone idols.
+
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            navigate("/contact");
+          }}
+          className="mt-4 bg-transparent border-1 border-[#ffcc70] text-white px-4   text-xs md:text-lg py-2 rounded-full  shadow-md hover:bg-gradient-to-l from-[#2e2b06]  to-[#ffcc70] hover:text-white transition cursor-pointer fira-sans"
+        >
+          Contact Us Now
+        </button>
+      </section>
+    </div>
   );
 };
 
