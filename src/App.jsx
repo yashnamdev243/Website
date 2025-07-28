@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./pages/about";
+// import About from "./pages/about";
 // import BookNow from "./pages/booknow";
 import Contact from "./pages/contact";
 import Layout from "./layout/layout";
