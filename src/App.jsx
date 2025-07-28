@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/home";
 import About from "./pages/about";
 // import BookNow from "./pages/booknow";
 import Contact from "./pages/contact";
@@ -23,6 +22,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Products from "./pages/Products";
 import ProductCategory from "./pages/ProductCategory";
 import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 
 const App = () => {
   return (
