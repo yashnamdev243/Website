@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import About from "./pages/about";
 // import BookNow from "./pages/booknow";
-import Contact from "./pages/contact";
 import Layout from "./layout/layout";
 import TourDetails from "./components/Tour_Dropdown_Details";
 import Content from "./pages/Content";
@@ -23,7 +22,7 @@ import Products from "./pages/Products";
 import ProductCategory from "./pages/ProductCategory";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
-
+import Contact from "./pages/Contact";
 const App = () => {
   return (
     <Router>
