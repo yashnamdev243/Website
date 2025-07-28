@@ -4,7 +4,7 @@ import ReviewSection from "../components/ReviewSection";
 import TourCarousel from "../components/TourCarousel";
 // import Tour_package_Cards from "../components/Tour_package_Cards";
 // import Blog_cards from "../components/Blog_cards";
-import products from "../Data/products";
+import products from "../Data/products.js";
 import ProductCard from "../components/ProductCard";
 
 const Home = () => {
