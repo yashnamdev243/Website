@@ -1,26 +1,17 @@
-// ===== NotFound.jsx =====
 import React from "react";
 import { Link } from "react-router-dom";
-import { FrownOutlined } from "@ant-design/icons";
 
-const NotFound = () => {
+export default function NotFound() {
   return (
-    <div className="min-h-screen  flex flex-col items-center justify-center text-center p-6 ">
-      <div className="text-yellow-500 animate-bounce">
-        <FrownOutlined className="lg:text-8xl text-6xl" />
-      </div>
-      <h1 className="lg:text-6xl text-2xl font-bold text-gray-800 mt-4">404</h1>
-      <p className="lg:text-lg text-gray-600 mt-2">
-        Oops! The page you're looking for doesn't exist.
-      </p>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-[#fffaf2] px-4 text-center">
+      <h1 className="text-6xl font-bold text-[#a06322] mb-4">404</h1>
+      <p className="text-xl text-[#4a3b28] mb-6">Page not found</p>
       <Link
         to="/"
-        className="mt-6 lg:px-6 px-3 py-1 lg:py-2 lg:text-[16px] text-sm bg-yellow-400 text-white rounded-md shadow-md hover:bg-yellow-500 transition-all duration-300"
+        className="bg-[#7f4a18] text-white px-6 py-2 rounded hover:bg-[#5e3411] transition"
       >
-        Back to Home
+        Go to Home
       </Link>
     </div>
   );
-};
-
-export default NotFound;
+}

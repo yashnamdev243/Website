@@ -1,80 +1,105 @@
+// // App.jsx
+// import React from "react";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Home from "./pages/Home";
+// import Products from "./pages/Products";
+// import Contact from "./pages/Contact";
+// import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
+// import About from "./pages/About";
+// import AdminLogin from "./admin/Login";
+// import ProtectedRoute from "./admin/ProtectedRoute";
+// import AdminDashboard from "./admin/Dashboard";
+// import Blogs from "./pages/Blogs";
+// import NotFound from "./pages/NotFound";
+
+// function App() {
+//   return (
+//     <Router>
+//       <Navbar />
+
+//       <Routes>
+//         <Route path="/" element={<Home />} />
+//         <Route path="/about" element={<About />} />
+//         <Route path="/products" element={<Products />} />
+//         <Route path="/blogs" element={<Blogs />} />
+//         <Route path="/contact" element={<Contact />} />
+//         <Route path="*" element={<NotFound />} />
+
+//         <Route path="/admin/login" element={<AdminLogin />} />
+//         <Route
+//           path="/admin/dashboard"
+//           element={
+//             <ProtectedRoute>
+//               <AdminDashboard />
+//             </ProtectedRoute>
+//           }
+//         />
+//       </Routes>
+//       <Footer />
+//     </Router>
+//   );
+// }
+
+// export default App;
+
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import About from "./pages/about";
-// import BookNow from "./pages/booknow";
-import Layout from "./layout/layout";
-// import TourDetails from "./components/Tour_Dropdown_Details";
-// import Content from "./pages/Content";
-// import BlogDetails from "./components/BlogDetails";
-import FloatingButtons from "./components/FloatingButtons";
-// import BlogPage from "./pages/blog";
-// import BlogDetail from "./components/BlogDetail";
-// import ManimaheshKailash from "./Blog/manimahesh-kailash";
-// import ShrikhandKailash from "./Blog/shrikhand-kailash";
-// import KinnaurKailash from "./Blog/kinnaur-kailash";
-// import AdiKailash from "./Blog/adi-kailash";
-// import KedarnathDham from "./Blog/kedarnath-dham";
-// import MansarovarKailash from "./Blog/mansarovar-kailash";
-// import CharDhamYatra from "./Blog/chardham-yatra";
-// import UjjainMahakaleshwar from "./Blog/ujjain-mahakaleshwar";
-import ScrollToTop from "./components/ScrollToTop";
-import Products from "./pages/Products";
-import ProductCategory from "./pages/ProductCategory";
-import NotFound from "./pages/NotFound";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Home from "./pages/Home";
+import Products from "./pages/Products";
 import Contact from "./pages/Contact";
-const App = () => {
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import About from "./pages/About";
+import AdminLogin from "./admin/Login";
+import ProtectedRoute from "./admin/ProtectedRoute";
+import AdminDashboard from "./admin/Dashboard";
+import Blogs from "./pages/Blogs";
+import NotFound from "./pages/NotFound";
+
+function AppWrapper() {
+  const location = useLocation();
+
+  // Hide header/footer for admin routes
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
+  return (
+    <>
+      {!isAdminRoute && <Navbar />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+
+      {!isAdminRoute && <Footer />}
+    </>
+  );
+}
+
+export default function App() {
   return (
     <Router>
-      <ScrollToTop />
-      <Layout>
-        <div className="w-full flex justify-end sm:p-4 md:p-6 lg:p-0">
-          <FloatingButtons />
-        </div>
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
-          {/* <Route path="/booknow" element={<BookNow />} /> */}
-
-          <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-
-                    <Route path="/products" element={<Products />} />
-          <Route path="/products/:category" element={<ProductCategory />} />
-          {/* <Route path="/blog" element={<BlogPage />} /> */}
-          {/* <Route path="/blog/:route" element={<BlogDetail />} /> */}
-
-          {/* <Route path="/content" element={<Content />} /> */}
-          
-          {/* <Route path="/tour/:id" element={<TourDetails />} /> */}
-          {/* <Route path="/blog/:id" element={<BlogDetails />} /> */}
-
-          {/* <Route
-            path="/blog/manimahesh-kailash"
-            element={<ManimaheshKailash />}
-          /> */}
-          {/* <Route
-            path="/blog/shrikhand-kailash"
-            element={<ShrikhandKailash />}
-          /> */}
-          {/* <Route path="/blog/kinnaur-kailash" element={<KinnaurKailash />} />
-          <Route path="/blog/adi-kailash" element={<AdiKailash />} />
-          <Route path="/blog/kedarnath-dham" element={<KedarnathDham />} /> */}
-          {/* <Route
-            path="/blog/mansarovar-kailash"
-            element={<MansarovarKailash />}
-          />
-          <Route path="/blog/chardham-yatra" element={<CharDhamYatra />} />
-          <Route
-            path="/blog/ujjain-mahakaleshwar"
-            element={<UjjainMahakaleshwar />}
-          /> */}
-                  
-        </Routes>
-      </Layout>
+      <AppWrapper />
     </Router>
   );
-};
-
-export default App;
+}
