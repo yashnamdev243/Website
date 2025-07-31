@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, Button, List, Card, Modal, message } from "antd";
+import { Form, Input, Button, List, Card, Modal, message, Upload } from "antd";
+import { UploadOutlined } from "@mui/icons-material";
 
 export default function ProductsManager() {
   const [products, setProducts] = useState([]);
@@ -16,19 +17,49 @@ export default function ProductsManager() {
     setProducts(newData);
   };
 
-  const onFinish = (values) => {
-    let updated;
-    if (editingIndex !== null) {
-      updated = [...products];
-      updated[editingIndex] = values;
-      setEditingIndex(null);
-    } else {
-      updated = [...products, values];
-    }
-    saveProducts(updated);
-    form.resetFields();
-    message.success("Product saved successfully!");
+//   const onFinish = (values) => {
+//     let updated;
+//     if (editingIndex !== null) {
+//       updated = [...products];
+//       updated[editingIndex] = values;
+//       setEditingIndex(null);
+//     } else {
+//       updated = [...products, values];
+//     }
+//     saveProducts(updated);
+//     form.resetFields();
+//     message.success("Product saved successfully!");
+//   };
+
+const onFinish = (values) => {
+  const imageFile = values.image?.[0]?.originFileObj;
+
+  if (!imageFile) {
+    message.error("Please upload an image.");
+    return;
+  }
+
+  // Optional: Add preview URL or upload logic here
+  const imageUrl = URL.createObjectURL(imageFile);
+
+  const productData = {
+    ...values,
+    image: imageUrl, // Or keep it as File object if uploading to server
   };
+
+  let updated;
+  if (editingIndex !== null) {
+    updated = [...products];
+    updated[editingIndex] = productData;
+    setEditingIndex(null);
+  } else {
+    updated = [...products, productData];
+  }
+
+  saveProducts(updated);
+  form.resetFields();
+  message.success("Product saved successfully!");
+};
 
   const handleEdit = (index) => {
     form.setFieldsValue(products[index]);
@@ -59,9 +90,26 @@ export default function ProductsManager() {
         <Form.Item name="price" label="Price (INR)" rules={[{ required: true }]}>
           <Input type="number" />
         </Form.Item>
-        <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
+        {/* <Form.Item name="image" label="Image URL" rules={[{ required: true }]}>
           <Input placeholder="https://example.com/image.jpg" />
-        </Form.Item>
+        </Form.Item> */}
+        <Form.Item
+  name="image"
+  label="Upload Image"
+  valuePropName="fileList"
+  getValueFromEvent={(e) => Array.isArray(e) ? e : e?.fileList}
+  rules={[{ required: true, message: "Please upload an image" }]}
+>
+  <Upload
+    name="image"
+    listType="picture"
+    beforeUpload={() => false} // prevent automatic upload
+    maxCount={1}
+  >
+    <Button icon={<UploadOutlined />}>Click to Upload</Button>
+  </Upload>
+</Form.Item>
+
         <Button type="primary" htmlType="submit">
           {editingIndex !== null ? "Update Product" : "Add Product"}
         </Button>
